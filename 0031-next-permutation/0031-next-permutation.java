@@ -12,22 +12,24 @@ class Solution {
         }
         return b;
     }
-
     public void nextPermutation(int[] nums) {
         int b=breakPoint(nums);
-        Arrays.sort(nums, b+1,nums.length);
-
-        int temp; 
-
-        if(b==-1) Arrays.sort(nums);
         
-        else{
-            temp=nums[b];
-            nums[b]=nums[b+1];
-            nums[b+1]=temp;
+        if(b==-1) {
+            Arrays.sort(nums);
+            return;
         }
 
-        // Arrays.sort(nums, b+1, nums.length-1);
+        for(int i=(nums.length)-1 ; i>b ; i--){
+            if(nums[i] > nums[b]){
+                int temp=nums[i];
+                nums[i]=nums[b];
+                nums[b]=temp;
+                break;
+            }
+        }
+
+        Arrays.sort(nums, b+1, nums.length);
         System.out.println(b);
     }
 }
