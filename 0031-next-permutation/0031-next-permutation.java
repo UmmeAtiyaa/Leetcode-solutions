@@ -2,14 +2,6 @@ import java.util.*;
 
 class Solution {
     
-    private void reverse(int[] nums, int start, int end) {
-        while (start < end) {
-            int temp = nums[start];
-            nums[start++] = nums[end];
-            nums[end--] = temp;
-        }
-    }
-
     int breakPoint(int[] nums){
         int b=-1;
         for(int i=(nums.length)-2 ; i>=0 ; i--){
@@ -21,11 +13,10 @@ class Solution {
         return b;
     }
     public void nextPermutation(int[] nums) {
-        int n =nums.length;
         int b=breakPoint(nums);
         
         if(b==-1) {
-            reverse(nums,b+1,n-1);
+            Arrays.sort(nums);
             return;
         }
 
@@ -38,6 +29,7 @@ class Solution {
             }
         }
 
-        reverse(nums,b+1,n-1);
+        Arrays.sort(nums, b+1, nums.length);
+        System.out.println(b);
     }
 }
