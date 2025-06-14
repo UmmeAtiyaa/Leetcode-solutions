@@ -39,6 +39,5 @@ class Solution {
         }
 
         reverse(nums,b+1,n-1);
-        System.out.println(b);
     }
 }
