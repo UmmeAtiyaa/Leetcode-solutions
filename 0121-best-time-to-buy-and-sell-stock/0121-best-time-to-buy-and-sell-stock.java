@@ -5,8 +5,8 @@ class Solution {
         int buy=prices[0];
 
         for(int i=1 ; i<prices.length ; i++){
-            buy = Math.min(buy, prices[i]);
-            prof = Math.max(prof, prices[i]-buy);
+            if( prices[i] < buy ) buy = prices[i];
+            else if(prices[i]-buy > prof) prof = prices[i]-buy;
         }
         return prof;
     }
